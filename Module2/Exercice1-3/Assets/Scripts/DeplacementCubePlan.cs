@@ -13,15 +13,8 @@ using UnityEngine;
 public class DeplacementCubePlan : MonoBehaviour
 {
     [SerializeField] private float vitesse = 2.0f; // Pour contrôler la vitesse de déplacement du cube
-                                                   // La valeur par défaut est 2.0. Elle peut être modifiée dans l'inspecteuré
+                                                   // La valeur par défaut est 2.0. Elle peut être modifiée dans l'inspecteur
                                                    // ATTENTION: si la vitesse est de zéro, alors le cube ne bougera pas
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     // Update is called once per frame
     void Update()
     {
@@ -33,12 +26,11 @@ public class DeplacementCubePlan : MonoBehaviour
         float positionX = transform.position.x + horizontal;
         float positionZ = transform.position.z + vertical;
 
-        // On s'assure de rester dans les bornes du plan
-        if (positionX >= -15 && positionX <= 15 && positionZ >= -15 && positionZ <= 15)
+        bool surLePlan = positionX >= -15 && positionX <= 15 && positionZ >= -15 && positionZ <= 15;
+        if (surLePlan)
         {
             // Changement de la position du joueur
             transform.position = new Vector3(positionX, 2, positionZ);
         }
-
     }
 }
