@@ -22,15 +22,24 @@ public class PositionCamera : MonoBehaviour
     //[SerializeField] private Vector3 rotationCamera3;
 
     [SerializeField] private Vector3[] tabPositions;
-    
-    [SerializeField] private Vector3[] tabRotations;
+
+    private Quaternion[] tabRotations;
 
     private int positionActiveCamera;
+
+    private int hauteurCamera = 1;
 
     // Start is called before the first frame update
     void Start()
     {
         positionActiveCamera = 0;
+        tabRotations = new Quaternion[4];
+
+        for (int i = 0; i < tabPositions.Length; i++)
+        {
+            Vector3 direction = Vector3.zero - tabPositions[i];
+            tabRotations[i] = Quaternion.LookRotation(direction);
+        }
     }
 
     private void Update()
@@ -63,13 +72,35 @@ public class PositionCamera : MonoBehaviour
                 positionActiveCamera = 0;
             }
         }
+
+        if (Input.GetKeyDown (KeyCode.PageUp) && hauteurCamera < 10)
+        {
+            hauteurCamera++;
+            for (int i=0; i<tabPositions.Length; i++)
+            {
+                tabPositions[i] += Vector3.up;
+                Vector3 direction = Vector3.zero - tabPositions[i];
+                tabRotations[i] = Quaternion.LookRotation(direction);
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.PageDown) && hauteurCamera > 1)
+        {
+            hauteurCamera--;
+            for (int i = 0; i < tabPositions.Length; i++)
+            {
+                tabPositions[i] += Vector3.down;
+                Vector3 direction = Vector3.zero - tabPositions[i];
+                tabRotations[i] = Quaternion.LookRotation(direction);
+            }
+        }
     }
 
     // Update is called once per frame
     void LateUpdate()
     {
         transform.position = tabPositions[positionActiveCamera];
-        transform.eulerAngles = tabRotations[positionActiveCamera];
+        transform.rotation = tabRotations[positionActiveCamera];
 
         //if (positionActiveCamera == 0)
         //{
