@@ -42,7 +42,7 @@ public class Poulet : MonoBehaviour
         }
 
         // On fait systématiquement descendre pour ne pas que l'objet marche dans le ciel
-        Vector3 descendre = Vector3.down * 9.81f * Time.deltaTime;
+        Vector3 descendre = Vector3.down * 9.81f;
         controlleur.Move(descendre);
 
         transform.Rotate(Vector3.up, horizontal * vitesseTourner);
@@ -69,8 +69,6 @@ public class Poulet : MonoBehaviour
             GameObject gestionnaireJeu = GameObject.Find("GameManager");
             CompterMonstres compteur = gestionnaireJeu.GetComponent<CompterMonstres>();
             compteur.RetirerMonstre();
-
-
         }
     }
 }
