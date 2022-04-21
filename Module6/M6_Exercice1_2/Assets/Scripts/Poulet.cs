@@ -61,10 +61,10 @@ public class Poulet : MonoBehaviour
 
     public void OnControllerColliderHit(ControllerColliderHit hit)
     {
-        GameObject gameObject = hit.gameObject;
-        if (gameObject.tag.Equals("Monstre"))
+        GameObject objetTouche = hit.gameObject;
+        if (objetTouche.tag.Equals("Monstre"))
         {
-            Destroy(gameObject);
+            Destroy(objetTouche);
         }
     }
 }
