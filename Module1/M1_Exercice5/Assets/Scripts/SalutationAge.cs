@@ -5,7 +5,7 @@ using UnityEngine;
 
 /**
  * 
- * Programme qui illustre le fonctionne d'un type int. Il est utilisé pour l'âge d'une personne
+ * Programme qui illustre le fonctionnement d'un type int. Il est utilisé pour l'âge d'une personne
  * 
  * Auteurs: Enseignants de 420-C1B-BB
  */
@@ -18,7 +18,10 @@ public class SalutationAge : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log("Bonjour " + nomPersonne + " vous avez " + age + "ans.");
+        Debug.Log("Bonjour " + nomPersonne + ", vous avez " + age + "ans.");
+
+        // ou pour les braves:
+        // Debug.Log($"Bonjour {nomPersonne}, vous avez {age} ans.");
     }
 
     // Update is called once per frame
