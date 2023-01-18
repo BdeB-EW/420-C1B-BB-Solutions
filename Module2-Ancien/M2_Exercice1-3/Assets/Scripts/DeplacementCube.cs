@@ -20,7 +20,7 @@ public class DeplacementCube : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Lecture de la direction
+        // Lecture du déplacement selon les axes
         float horizontal = Input.GetAxis("Horizontal") * Time.deltaTime;
         float vertical = Input.GetAxis("Vertical") * Time.deltaTime;
 
