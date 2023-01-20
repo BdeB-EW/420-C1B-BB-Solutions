@@ -5,9 +5,9 @@ using UnityEngine;
 /**
  * Classe qui montre comment placer un objet en utilisant le transform du GameObject
  * 
- * Auteurs: ENseignants du cours de 420-C1B-BB
+ * Auteurs: Enseignants du cours de 420-C1B-BB
  */
-public class CubeBehaviour : MonoBehaviour
+public class ReplacerCube : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
