@@ -19,6 +19,7 @@ public class CacherCube : MonoBehaviour
     {
         // Détermine une cachette aléatoire
         int valeurAleatoire = UnityEngine.Random.Range(1, 4);
+        Debug.Log(valeurAleatoire);
 
         // On fait un if pour placer l'élément à la bonne place
         if (valeurAleatoire == 1)
