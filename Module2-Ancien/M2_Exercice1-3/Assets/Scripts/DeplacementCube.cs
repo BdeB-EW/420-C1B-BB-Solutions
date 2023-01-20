@@ -11,25 +11,22 @@ using UnityEngine;
  */
 public class DeplacementCube : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField]
+    private float vitesseDeplacement;  // Pour la vitesse de déplacement
 
     // Update is called once per frame
     void Update()
     {
         // Lecture du déplacement selon les axes
-        float horizontal = Input.GetAxis("Horizontal") * Time.deltaTime;
-        float vertical = Input.GetAxis("Vertical") * Time.deltaTime;
+        float horizontal = Input.GetAxis("Horizontal") * vitesseDeplacement * Time.deltaTime;
+        float vertical = Input.GetAxis("Vertical") * vitesseDeplacement * Time.deltaTime;
 
         // Calcul des nouvelles positions
         float positionX = transform.position.x + horizontal;
+        float positionY = transform.position.y; // On ne change pas la hauteur
         float positionZ = transform.position.z + vertical;
 
         // Changement de la position du joueur
-        transform.position = new Vector3(positionX, 2, positionZ);
-        
+        transform.position = new Vector3(positionX, positionY, positionZ);        
     }
 }

@@ -12,25 +12,37 @@ using UnityEngine;
  */
 public class DeplacementCubePlan : MonoBehaviour
 {
-    [SerializeField] private float vitesse = 2.0f; // Pour contrôler la vitesse de déplacement du cube
-                                                   // La valeur par défaut est 2.0. Elle peut être modifiée dans l'inspecteur
-                                                   // ATTENTION: si la vitesse est de zéro, alors le cube ne bougera pas
+    [SerializeField]
+    private float vitesseDeplacement;  // Pour la vitesse de déplacement
+
     // Update is called once per frame
     void Update()
     {
-        // Lecture de la direction
-        float horizontal = Input.GetAxis("Horizontal") * vitesse * Time.deltaTime;
-        float vertical = Input.GetAxis("Vertical") * vitesse * Time.deltaTime;
+        // Lecture du déplacement selon les axes
+        float horizontal = Input.GetAxis("Horizontal") * vitesseDeplacement * Time.deltaTime;
+        float vertical = Input.GetAxis("Vertical") * vitesseDeplacement * Time.deltaTime;
 
         // Calcul des nouvelles positions
         float positionX = transform.position.x + horizontal;
+        float positionY = transform.position.y; // On ne change pas la hauteur
         float positionZ = transform.position.z + vertical;
 
-        bool surLePlan = positionX >= -15 && positionX <= 15 && positionZ >= -15 && positionZ <= 15;
-        if (surLePlan)
+
+        if (positionX >= -13.5f && positionX <= 13.5f && positionZ >= -13.5f && positionZ <= 13.5f)
         {
             // Changement de la position du joueur
-            transform.position = new Vector3(positionX, 2, positionZ);
+            transform.position = new Vector3(positionX, positionY, positionZ);
         }
+
+        // ou en utilisant un booléen
+        // bool surLePlan = positionX >= -13.5f && positionX <= 13.5f && positionZ >= -13.5f && positionZ <= 13.5f;
+        // if (surLePlan)
+        // {
+        //    // Changement de la position du joueur
+        //    transform.position = new Vector3(positionX, positionY, positionZ);
+        // }
+
     }
+
 }
+
