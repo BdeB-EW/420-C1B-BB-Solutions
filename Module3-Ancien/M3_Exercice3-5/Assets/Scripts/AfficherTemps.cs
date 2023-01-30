@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 /// <summary>
 /// Classe qui affiche le temps depuis le démarrage du jeu dans un champ texte
@@ -13,7 +14,7 @@ public class AfficherTemps : MonoBehaviour
     /// <summary>
     /// Le texte pour écrire le temps
     /// </summary>
-    [SerializeField] private Text textTemps;
+    [SerializeField] private TMP_Text textTemps;
 
     void Start()
     {
