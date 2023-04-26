@@ -203,8 +203,7 @@ MonoBehaviour:
   prefabSandwich: {fileID: 1446357740554309992, guid: effe4c3b33e53a04885ed373f7dc1c4b, type: 3}
   txtManges: {fileID: 1724735153}
   txtRestants: {fileID: 1758472292}
-  nbSandwichesManges: 0
-  nbSandwichesRestants: 0
+  distanceMinimum: 3
 --- !u!1 &456364154
 GameObject:
   m_ObjectHideFlags: 0
@@ -1487,6 +1486,10 @@ PrefabInstance:
     - target: {fileID: 3760353247057569212, guid: 967b735411d6a0448a5505a2c091147e, type: 3}
       propertyPath: m_Name
       value: Gourmand
+      objectReference: {fileID: 0}
+    - target: {fileID: 3760353247057569212, guid: 967b735411d6a0448a5505a2c091147e, type: 3}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 4102247694490142085, guid: 967b735411d6a0448a5505a2c091147e, type: 3}
       propertyPath: m_Speed
