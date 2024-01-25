@@ -28,25 +28,22 @@ public class DevinetteNombre : MonoBehaviour
     void Update()
     {
         textNombreEssais.text = "Il vous reste " + nombreEssais + " essai(s)";
-
-        //if (nombreEssais <= 0)
-        //{
-        //    textResultat.text = "Vous avez perdu! Le nombre était " + nombreAleatoire;
-        //    boutonSoumettre.gameObject.SetActive(false);
-        //    boutonNouvellePartie.gameObject.SetActive(true);
-        //}
     }
 
     public void SoumettreNombre()
     {
         int nombre;
+        bool victoire = false;
         if (int.TryParse(inputNombre.text, out nombre))
         {
+            nombreEssais--;
+
             if (nombre == nombreAleatoire)
             {
                 textResultat.text = "Vous avez gagné!";
                 boutonSoumettre.gameObject.SetActive(false);
                 boutonNouvellePartie.gameObject.SetActive(true);
+                victoire = true;
             }
             else if (nombre < nombreAleatoire)
             {
@@ -56,7 +53,17 @@ public class DevinetteNombre : MonoBehaviour
             {
                 textResultat.text = "Votre essai est trop grand";
             }
-            nombreEssais--;
+
+            if (! victoire)
+            {
+                if (nombreEssais == 0)
+                {
+                    textResultat.text = "Vous avez perdu ! Le nombre était " + nombreAleatoire;
+                    boutonSoumettre.gameObject.SetActive(false);
+                    boutonNouvellePartie.gameObject.SetActive(true);
+                }
+            }
+
         }
         inputNombre.text = "";
     }
