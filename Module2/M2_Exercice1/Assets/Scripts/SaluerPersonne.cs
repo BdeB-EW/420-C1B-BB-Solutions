@@ -13,14 +13,16 @@ public class SaluerPersonne : MonoBehaviour
 
     void Start()
     {
+        texteSalutation.gameObject.SetActive(false);
     }
 
-    public void DireBonjour()
+public void DireBonjour()
     {
         texteSalutation.text = "Bonjour " + champSaisieNom.text;
 
         textNom.gameObject.SetActive(false);
         boutonDireBonjour.gameObject.SetActive(false);
         champSaisieNom.gameObject.SetActive(false);
+        texteSalutation.gameObject.SetActive(true);
     }
 }
