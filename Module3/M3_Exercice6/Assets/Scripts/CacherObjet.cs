@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class CacherObjet : MonoBehaviour
 {
-    [SerializeField] private GameObject[] objetsACacher;
-    [SerializeField]  private float _delai = 1f;
+    public GameObject[] objetsACacher;
+    public float _delai = 1f;
 
     private float tempsAccumule;
     private int _indexCache;

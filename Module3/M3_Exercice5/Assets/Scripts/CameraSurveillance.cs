@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class CameraSurveillance : MonoBehaviour
 {
-    [SerializeField] private GameObject[] _positionsCamera;
-    [SerializeField] private GameObject _camera;
+    public GameObject[] _positionsCamera;
+    public GameObject _camera;
     
     private int _index;
     private float _tempsAvantChangement;
