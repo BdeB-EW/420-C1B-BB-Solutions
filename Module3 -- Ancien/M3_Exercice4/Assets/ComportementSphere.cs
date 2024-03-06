@@ -39,10 +39,5 @@ public class ComportementSphere : MonoBehaviour
         int valeur8;
         int valeur9;
         int valeur10;
-
-
-
-
-
     }
 }
