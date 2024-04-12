@@ -23,6 +23,10 @@ public class MouvementRenard : MonoBehaviour
         if (vertical > 0)
         {
             Vector3 vecteurVitesse = transform.forward * vitesse * vertical;
+            if (Input.GetKey(KeyCode.LeftShift))
+            {
+                vecteurVitesse *= 2;
+            }
             _controleurMouvement.SimpleMove(vecteurVitesse);
             _animator.SetBool("Marcher", true);
         }
