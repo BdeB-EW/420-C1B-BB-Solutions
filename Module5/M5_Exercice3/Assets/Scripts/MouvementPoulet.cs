@@ -52,8 +52,8 @@ public class MouvementPoulet : MonoBehaviour
     {
         if (other.gameObject == _renard)
         {
+            GameObject.Find("ControleurJeu").GetComponent<GameManager>().PouleDevoree();
             Destroy(gameObject);
-            GameObject.Find("GameManager").GetComponent<GameManager>().PouleDevoree();
         }
     }
 }
