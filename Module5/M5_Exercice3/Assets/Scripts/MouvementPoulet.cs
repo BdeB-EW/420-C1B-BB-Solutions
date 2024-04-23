@@ -14,7 +14,7 @@ public class MouvementPoulet : MonoBehaviour
 
     // Start is called before the first frame update
     void Start()
-    {
+    {  
         _renard = GameObject.Find("Renard");
         _positionInitiale = transform.position;
         _animator = GetComponent<Animator>();
