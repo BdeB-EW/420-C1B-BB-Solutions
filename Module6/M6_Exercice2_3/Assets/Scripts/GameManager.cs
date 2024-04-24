@@ -25,13 +25,6 @@ public class GameManager : MonoBehaviour
         GameObject[] poules = GameObject.FindGameObjectsWithTag("Poule");
         _poulesRestantes = poules.Length;
         _nombrePoules.text = _poulesRestantes.ToString();
-
-        // Donne une destination à chaque poule
-        for (int i = 0; i < poules.Length; i++)
-        {
-            int indice = Random.Range(0, _pointsPoules.Length);
-            poules[i].GetComponent<MouvementPoulet>().destination = _pointsPoules[indice].transform.position;
-        }
     }
 
     public void PouleDevoree()
@@ -49,12 +42,24 @@ public class GameManager : MonoBehaviour
         else
         {
             GameObject[] poules = GameObject.FindGameObjectsWithTag("Poule");
-            for (int i = 0; i < poules.Length; i++)
-            {
-                int indice = Random.Range(0, _pointsPoules.Length);
-                poules[i].GetComponent<MouvementPoulet>().destination = _pointsPoules[indice].transform.position;
-            }
+            ChangerDestination(poules);
         }
+    }
+
+    public void ChangerDestination(GameObject[] poules)
+    {        
+        for (int i = 0; i < poules.Length; i++)
+        {
+            Vector3 destination = ObtenirNouvelleDestination();
+            MouvementPoulet unePoule = poules[i].GetComponent<MouvementPoulet>();
+            unePoule.ChangerDestination(destination);
+        }
+    }
+
+    public Vector3 ObtenirNouvelleDestination()
+    {
+        int indice = Random.Range(0, _pointsPoules.Length);
+        return _pointsPoules[indice].transform.position;
     }
 
     public void Reprendre()
